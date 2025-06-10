@@ -1,0 +1,78 @@
+{
+  "name": "hexportation.entry.conduit",
+  "category": "hexcasting:patterns/great_spells",
+  "icon": "minecraft:hopper",
+  "sortnum": 7,
+  "advancement": "hexcasting:root",
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexportation:make_conduit",
+      "anchor": "hexportation:make_conduit",
+      "input": "vec, vec, vec, vec",
+      "output": "conduit",
+      "text": "hexportation.page.make_conduit"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexportation:send_item",
+      "anchor": "hexportation:send_item",
+      "input": "conduit, num",
+      "output": "",
+      "text": "hexportation.page.send_item"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexportation:get_source_inv",
+      "anchor": "hexportation:get_source_inv",
+      "input": "conduit",
+      "output": "view[]",
+      "text": "hexportation.page.get_source_inv"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexportation:get_sink_inv",
+      "anchor": "hexportation:get_sink_inv",
+      "input": "conduit",
+      "output": "view[]",
+      "text": "hexportation.page.get_sink_inv"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexportation:send_item_filt",
+      "anchor": "hexportation:send_item_filt",
+      "input": "conduit, num[]",
+      "output": "",
+      "text": "hexportation.page.send_item_filt"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexportation:get_view_amount",
+      "anchor": "hexportation:get_view_amount",
+      "input": "view",
+      "output": "num",
+      "text": "hexportation.page.get_view_amount"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexportation:get_view_capacity",
+      "anchor": "hexportation:get_view_capacity",
+      "input": "view",
+      "output": "num",
+      "text": "hexportation.page.get_view_capacity"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "hexportation.page.fluid_units"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexportation:get_view_name",
+      "anchor": "hexportation:get_view_name",
+      "input": "view",
+      "output": "string",
+      "text": "hexportation.page.get_view_name"
+    }
+  ]
+}

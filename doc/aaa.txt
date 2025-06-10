@@ -1,0 +1,40 @@
+ValidationError: 12 validation errors for Properties
+resource_dirs.2.function-after[_post_root(), function-after[_validate_paths(), PathResourceDir]]
+  Value error, PathResourceDir path does not exist: E:\Projects\Complex-Hex\doc\..\common\src\generated\resources [type=value_error,
+input_value='../common/src/generated/resources', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.8/v/value_error
+resource_dirs.2.function-after[_validate_paths(), PatchouliBooksResourceDir]
+  Input should be a valid dictionary or instance of PatchouliBooksResourceDir [type=model_type, input_value='../common/src/generated/resources', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.8/v/model_type
+resource_dirs.2.PluginResourceDir
+  Input should be a valid dictionary or instance of PluginResourceDir [type=model_type, input_value='../common/src/generated/resources', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.8/v/model_type
+resource_dirs.2.function-after[_validate_paths(), GlobResourceDir]
+  Input should be a valid dictionary or instance of GlobResourceDir [type=model_type, input_value='../common/src/generated/resources', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.8/v/model_type
+resource_dirs.4.function-after[_post_root(), function-after[_validate_paths(), PathResourceDir]]
+  Value error, PathResourceDir path does not exist: E:\Projects\Complex-Hex\doc\..\fabric\src\generated\resources [type=value_error,
+input_value='../fabric/src/generated/resources', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.8/v/value_error
+resource_dirs.4.function-after[_validate_paths(), PatchouliBooksResourceDir]
+  Input should be a valid dictionary or instance of PatchouliBooksResourceDir [type=model_type, input_value='../fabric/src/generated/resources', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.8/v/model_type
+resource_dirs.4.PluginResourceDir
+  Input should be a valid dictionary or instance of PluginResourceDir [type=model_type, input_value='../fabric/src/generated/resources', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.8/v/model_type
+resource_dirs.4.function-after[_validate_paths(), GlobResourceDir]
+  Input should be a valid dictionary or instance of GlobResourceDir [type=model_type, input_value='../fabric/src/generated/resources', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.8/v/model_type
+resource_dirs.6.function-after[_post_root(), function-after[_validate_paths(), PathResourceDir]]
+  Value error, PathResourceDir path does not exist: E:\Projects\Complex-Hex\doc\..\forge\src\generated\resources [type=value_error,
+input_value='../forge/src/generated/resources', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.8/v/value_error
+resource_dirs.6.function-after[_validate_paths(), PatchouliBooksResourceDir]
+  Input should be a valid dictionary or instance of PatchouliBooksResourceDir [type=model_type, input_value='../forge/src/generated/resources', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.8/v/model_type
+resource_dirs.6.PluginResourceDir
+  Input should be a valid dictionary or instance of PluginResourceDir [type=model_type, input_value='../forge/src/generated/resources', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.8/v/model_type
+resource_dirs.6.function-after[_validate_paths(), GlobResourceDir]
+  Input should be a valid dictionary or instance of GlobResourceDir [type=model_type, input_value='../forge/src/generated/resources', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.8/v/model_type
