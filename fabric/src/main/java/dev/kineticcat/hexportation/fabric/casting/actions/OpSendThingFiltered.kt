@@ -4,6 +4,7 @@ import at.petrak.hexcasting.api.casting.ParticleSpray
 import at.petrak.hexcasting.api.casting.RenderedSpell
 import at.petrak.hexcasting.api.casting.castables.SpellAction
 import at.petrak.hexcasting.api.casting.eval.CastingEnvironment
+import at.petrak.hexcasting.api.casting.eval.env.CircleCastEnv
 import at.petrak.hexcasting.api.casting.getList
 import at.petrak.hexcasting.api.casting.iota.DoubleIota
 import at.petrak.hexcasting.api.casting.iota.Iota
@@ -25,12 +26,12 @@ object OpSendThingFiltered : SpellAction{
         if (!list.all { iota -> iota is DoubleIota && DoubleIota.tolerates(iota.double % 1, 0.0) })
             throw MishapInvalidIota.of(args[1], 1, "non_int_list")
         val amounts = list.map { iota -> (iota as DoubleIota).double.toLong() }
-        val cost = amounts.reduce { acc, l -> acc + l }
         val storage = Storage(conduit, env.world)
+        val cost = amounts.reduce { acc, l -> acc + (storage.cost(l) ?: 0) }
         storage.mode ?: throw MishapInvalidIota.of(args[0], 0, "invalid_conduit")
         return SpellAction.Result(
                 Spell(storage, amounts),
-                cost,
+                if (env is CircleCastEnv) 0 else cost,
                 listOf(
                         ParticleSpray(
                                 conduit.source.center.add(conduit.sourceDir.normal.asVec3().scale(.5)),
@@ -52,7 +53,7 @@ object OpSendThingFiltered : SpellAction{
                 Storage.Modes.ITEM -> {
                     val (source, sink) = storage.conduit.getItemStoragesOrNull(env.world)
                     val amts = amounts.iterator()
-                    val iterator = storage.getSourceItemIterator()
+                    val iterator = storage.getItemIterator()
                     iterator.forEach {view ->
                         if (!amts.hasNext()) return
                         val amt = amts.next()
@@ -77,7 +78,7 @@ object OpSendThingFiltered : SpellAction{
                 Storage.Modes.FLUID -> {
                     val (source, sink) = storage.conduit.getFluidStoragesOrNull(env.world)
                     val amts = amounts.iterator()
-                    val iterator = storage.getSourceFluidIterator()
+                    val iterator = storage.getFluidIterator()
                     iterator.forEach {view ->
                         if (!amts.hasNext()) return
                         val amt = amts.next()

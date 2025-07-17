@@ -24,15 +24,9 @@ object OpMakeConduit : ConstMediaAction {
         val sink = args.getBlockPos(2);
         val sinkdirvec = args.getBlockPos(3)
         val sinkdir = Direction.fromDelta(sinkdirvec.x, sinkdirvec.y, sinkdirvec.z)
-        val conduit = ConduitIota.Conduit(source, sourcedir, sink, sinkdir)
-        val storage = Storage(conduit, env.world)
-        if (storage.mode == null) {
-            throw MishapInvalidIota.of(args[0], 0, "invalid_endpoint")
-        }
+
         env.assertPosInRange(source)
         env.assertPosInRange(sink)
-        Hexportation.LOGGER.info(source)
-        Hexportation.LOGGER.info(sink)
         return ConduitIota(source, sourcedir, sink, sinkdir).asActionResult();
     }
 }

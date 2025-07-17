@@ -77,14 +77,12 @@ public class ConduitIota extends Iota {
         public Pair<Storage<ItemVariant>, Storage<ItemVariant>> getItemStoragesOrNull(ServerLevel sLevel) {
             Storage<ItemVariant> sourceStorage = ItemStorage.SIDED.find(sLevel, source, sourceDir);
             Storage<ItemVariant> sinkStorage = ItemStorage.SIDED.find(sLevel, sink, sinkDir);
-            if (sourceStorage != null && sinkStorage != null) return new Pair<>(sourceStorage, sinkStorage);
-                else return null;
+            return new Pair<>(sourceStorage, sinkStorage);
         }
         public Pair<Storage<FluidVariant>, Storage<FluidVariant>> getFluidStoragesOrNull(ServerLevel sLevel) {
             Storage<FluidVariant> sourceStorage = FluidStorage.SIDED.find(sLevel, source, sourceDir);
             Storage<FluidVariant> sinkStorage = FluidStorage.SIDED.find(sLevel, sink, sinkDir);
-            if (sourceStorage != null && sinkStorage != null) return new Pair<>(sourceStorage, sinkStorage);
-            else return null;
+            return new Pair<>(sourceStorage, sinkStorage);
         }
         public Pair<EnergyStorage, EnergyStorage> getEnergyStoragesOrNull(ServerLevel sLevel) {
             EnergyStorage sourceStorage = EnergyStorage.SIDED.find(sLevel, source, sourceDir);

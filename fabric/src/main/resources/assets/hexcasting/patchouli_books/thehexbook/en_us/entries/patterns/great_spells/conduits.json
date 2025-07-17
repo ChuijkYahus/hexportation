@@ -27,7 +27,7 @@
       "op_id": "hexportation:get_source_inv",
       "anchor": "hexportation:get_source_inv",
       "input": "conduit",
-      "output": "view[]",
+      "output": "[view, ...]",
       "text": "hexportation.page.get_source_inv"
     },
     {
@@ -35,14 +35,14 @@
       "op_id": "hexportation:get_sink_inv",
       "anchor": "hexportation:get_sink_inv",
       "input": "conduit",
-      "output": "view[]",
+      "output": "[view, ...]",
       "text": "hexportation.page.get_sink_inv"
     },
     {
       "type": "hexcasting:pattern",
       "op_id": "hexportation:send_item_filt",
       "anchor": "hexportation:send_item_filt",
-      "input": "conduit, num[]",
+      "input": "conduit, [num, ...]",
       "output": "",
       "text": "hexportation.page.send_item_filt"
     },
@@ -73,6 +73,30 @@
       "input": "view",
       "output": "string",
       "text": "hexportation.page.get_view_name"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexportation:slurp",
+      "anchor": "hexportation:slurp",
+      "input": "conduit",
+      "output": "",
+      "text": "hexportation.page.slurp"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexportation:spit",
+      "anchor": "hexportation:spit",
+      "input": "conduit",
+      "output": "",
+      "text": "hexportation.page.spit"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexportation:transplace",
+      "anchor": "hexportation:transplace",
+      "input": "conduit",
+      "output": "",
+      "text": "hexportation.page.transplace"
     }
   ]
 }

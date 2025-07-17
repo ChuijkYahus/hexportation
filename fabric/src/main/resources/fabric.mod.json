@@ -3,13 +3,13 @@
   "id": "hexportation",
   "version": "${version}",
   "name": "Hexportation",
-  "description": "Complex Hex addon for Hex Casting",
+  "description": "Hexcasting addon for moving items/fluids/energy around",
   "authors": [
     "kineticcat"
   ],
   "contact": {
-    "homepage": "https://kineticcat.github.io/Complex-Hex",
-    "sources": "https://github.com/kineticcat/Complex-Hex"
+    "homepage": "https://kineticcat.github.io/hexportation",
+    "sources": "https://github.com/kineticcat/hexportation"
   },
   "license": "MIT",
   "icon": "icon.png",
