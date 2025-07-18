@@ -43,7 +43,12 @@ public class HexportationPatternRegistry {
             new OpGetViewData(view -> new DoubleIota(view.capacity().doubleValue())));
     public static final HexPattern GET_VIEW_NAME = make("adeeedewe", HexDir.EAST, "get_view_name",
             new OpGetViewData(view -> StringIota.makeUnchecked(view.InternalName())));
-
+    public static final HexPattern SLURP = make("aqaawdaqqqaqw", HexDir.SOUTH_EAST, "slurp",
+            OpSlurp.INSTANCE);
+    public static final HexPattern SPIT = make("daqqqaqeaqaa", HexDir.EAST, "spit",
+            OpSpit.INSTANCE);
+    public static final HexPattern TRANSPLACE = make("aqaawdaqqqaqeaqaa", HexDir.SOUTH_EAST, "transplace",
+            OpTransplace.INSTANCE);
     
     public static void init() {
         for (Map.Entry<ResourceLocation, ActionRegistryEntry> entry : PATTERNS.entrySet()) {

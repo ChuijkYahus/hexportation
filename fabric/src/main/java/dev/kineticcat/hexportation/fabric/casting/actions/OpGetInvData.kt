@@ -18,7 +18,7 @@ class OpGetInvData(val sink: Boolean = false) : ConstMediaAction {
 
         return when (storage.mode) {
             Storage.Modes.ITEM -> {
-                val iterator = storage.getSourceItemIterator(sink)
+                val iterator = storage.getItemIterator(sink)
                 val total = mutableListOf<StorageViewIota>()
                 iterator.forEach {view ->
                     total.add(StorageViewIota(view, 1L))
@@ -26,7 +26,7 @@ class OpGetInvData(val sink: Boolean = false) : ConstMediaAction {
                 listOf(ListIota(total.asReversed() as List<Iota>))
             }
             Storage.Modes.FLUID -> {
-                val iterator = storage.getSourceFluidIterator(sink)
+                val iterator = storage.getFluidIterator(sink)
                 val total = mutableListOf<StorageViewIota>()
                 iterator.forEach {view ->
                     total.add(StorageViewIota(view, 1.0))
@@ -34,7 +34,7 @@ class OpGetInvData(val sink: Boolean = false) : ConstMediaAction {
                 listOf(ListIota(total.asReversed() as List<Iota>))
             }
             Storage.Modes.ENERGY -> {
-                listOf(ListIota(listOf(StorageViewIota(storage.getSourceEnergyStorageOrNull(sink)))))
+                listOf(ListIota(listOf(StorageViewIota(storage.getEnergyStorageOrNull(sink)))))
             }
             else -> listOf()
         }

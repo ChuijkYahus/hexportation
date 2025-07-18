@@ -3,6 +3,7 @@ package dev.kineticcat.hexportation.fabric.casting.actions
 import at.petrak.hexcasting.api.casting.*
 import at.petrak.hexcasting.api.casting.castables.SpellAction
 import at.petrak.hexcasting.api.casting.eval.CastingEnvironment
+import at.petrak.hexcasting.api.casting.eval.env.CircleCastEnv
 import at.petrak.hexcasting.api.casting.iota.Iota
 import at.petrak.hexcasting.api.casting.mishaps.MishapInvalidIota
 import at.petrak.hexcasting.api.misc.MediaConstants
@@ -19,28 +20,16 @@ import team.reborn.energy.api.EnergyStorageUtil
 
 object OpSendThing : SpellAction {
     override val argc = 2
-    private var cost = 0L
-
-    enum class MODES {
-        ITEM, FLUID, ENERGY
-    }
 
     override fun execute(args: List<Iota>, env: CastingEnvironment): SpellAction.Result {
         var conduit = args.getConduit(0)
         var amt = args.getPositiveInt(1).toLong()
 
-//        var mode = when {
-//            conduit.getItemStoragesOrNull(env.world) != null -> MODES.ITEM
-//            conduit.getFluidStoragesOrNull(env.world) != null -> MODES.FLUID
-//            conduit.getEnergyStoragesOrNull(env.world) != null -> MODES.ENERGY
-//            else -> throw MishapInvalidIota.of(args[0], 0, "conduit")
-//        }
-//        var storage = StorageUtil.getStorage()
         var storage = Storage(conduit, env.world)
         storage.mode ?: throw MishapInvalidIota.of(args[0], 0, "invalid_conduit")
         return SpellAction.Result(
                 Spell(storage, amt),
-                MediaConstants.DUST_UNIT * amt,
+                if (env is CircleCastEnv) 0 else storage.cost(amt) ?: 0,
                 listOf(
                         ParticleSpray(
                                 conduit.source.center.add(conduit.sourceDir.normal.asVec3().scale(.5)),
